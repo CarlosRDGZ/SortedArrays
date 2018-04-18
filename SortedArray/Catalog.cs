@@ -72,10 +72,10 @@ namespace SortedArray
 			int index = Seek(0, Math.Min(_productsCount, Length));
 			if (index == -1)
 				throw new Exception("Not Found");
-
-			for (int i = index, j = Math.Min(_productsCount - 1, Length - 2); i <= j; i++)
+			int last = Math.Min(_productsCount, Length - 1);
+			for (int i = index, j = last; i < j; i++)
 				_catalog[i] = _catalog[i + 1];
-			_catalog[Math.Min(_productsCount, Length - 1)] = null;
+			_catalog[last] = null;
 
 			_productsCount--;
         }
